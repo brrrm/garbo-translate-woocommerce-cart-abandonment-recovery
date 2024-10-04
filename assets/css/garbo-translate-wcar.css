@@ -1,0 +1,14 @@
+.garbo-translate-wcar-form .field{
+	margin: 0 0 2em;
+}
+.garbo-translate-wcar-form .field label{
+	display: block;
+	font-size: 1.1667em;
+	margin: 0.5em 0;
+}
+
+.garbo-translate-wcar-form .field input,
+.garbo-translate-wcar-form .field textarea{
+	width: 30em;
+	max-width: 100%;
+}
