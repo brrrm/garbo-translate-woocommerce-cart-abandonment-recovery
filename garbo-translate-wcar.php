@@ -4,7 +4,7 @@
 Plugin Name:  Garbo translate wcar
 Plugin URI:   https://www.garbo.nl
 Description:  Translate email templates from Cart Abandoment plugin
-Version:      1.0.2
+Version:      1.0.3
 Author:       Garbo
 Author URI:   https://www.garbo.nl
 License:      GPL2
@@ -62,7 +62,7 @@ function garbo_translate_wcar_get_templates(){
 	global $wpdb;
 	$cart_abandonment_template_table_name = $wpdb->prefix . CARTFLOWS_CA_EMAIL_TEMPLATE_TABLE;
 	$templates = $wpdb->get_results(
-		$wpdb->prepare( "SELECT * FROM {$cart_abandonment_template_table_name} WHERE is_activated = 1" ), //phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		$wpdb->prepare( "SELECT * FROM {$cart_abandonment_template_table_name} ORDER BY id" ), //phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 		ARRAY_A
 	); // db call ok; no-cache ok.
 	return $templates;
