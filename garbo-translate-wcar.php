@@ -4,7 +4,7 @@
 Plugin Name:  Garbo translate wcar
 Plugin URI:   https://www.garbo.nl
 Description:  Translate email templates from Cart Abandoment plugin
-Version:      1.0
+Version:      1.0.2
 Author:       Garbo
 Author URI:   https://www.garbo.nl
 License:      GPL2
@@ -13,31 +13,24 @@ Text Domain:  garbo_translate_wcar
 Domain Path:  /languages
 */
 
-// create admin page
 
-// for each template
- // for each language
-  // text field
-
-
-
-add_action('admin_menu', 'garbo_translate_wcar_setup_menu');
+add_action('admin_menu', 'garbo_translate_wcar_setup_menu', 1000);
 function garbo_translate_wcar_setup_menu(){
 	// main page
-	add_menu_page( 
+	add_submenu_page(
+		'woocommerce',
 		__('Translate Cart Abandonment', 'garbo_translate_wcar'),
-		__('Translate Cart Abandonmentss', 'garbo_translate_wcar'),
+		__('Translate Cart Abandonment', 'garbo_translate_wcar'),
 		'manage_woocommerce',
 		'garbo_translate_wcar',
-		'garbo_translate_wcar_translate_page',
-		'',
-		58
+		'garbo_translate_wcar_translate_page'
 	);
 }
 
 add_action( 'admin_enqueue_scripts', 'garbo_translate_wcar_enqueue_scripts' );
 function garbo_translate_wcar_enqueue_scripts($hook){
-	if($hook != 'toplevel_page_garbo_translate_wcar'){
+	error_log($hook);
+	if($hook != 'woocommerce_page_garbo_translate_wcar'){
 		return;
 	}
 
