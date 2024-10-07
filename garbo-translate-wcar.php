@@ -29,7 +29,6 @@ function garbo_translate_wcar_setup_menu(){
 
 add_action( 'admin_enqueue_scripts', 'garbo_translate_wcar_enqueue_scripts' );
 function garbo_translate_wcar_enqueue_scripts($hook){
-	error_log($hook);
 	if($hook != 'woocommerce_page_garbo_translate_wcar'){
 		return;
 	}
